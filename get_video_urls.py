@@ -1,7 +1,5 @@
 import json
 
-
-
 def pull_data(
     data: dict,
     key_name: str,
@@ -35,7 +33,8 @@ if __name__ == '__main__':
 
     fname = 'user_data_tiktok.json'
     debug: bool = True
-    video_limit: int = 5
+    video_limit: int | None = None
+    out_fname = 'videos.json'
 
     with open(fname,'r') as fp:
         full_data = json.load(fp)
@@ -63,7 +62,12 @@ if __name__ == '__main__':
         )
         print('Video Urls')
         print(urls)
-    
-    
-    
-    
+
+    # Making it easy by creating a file from Simon's blog
+    with open(out_fname, 'w') as out_file:
+        # This is ugly string creation but I'm doing this in a hurry XD
+        out_file.write('[\n"')
+        out_file.write(
+            '",\n"'.join(urls)
+        )
+        out_file.write('"\n]')

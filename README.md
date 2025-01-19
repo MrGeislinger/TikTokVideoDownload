@@ -12,8 +12,9 @@ This is an alternative to get the URLs needed as described by [@simonw](https://
   - Right now, the file must be named `user_data_tiktok.json`
 3. Run script
   - Run `python get_video_urls.py`
-  - You probably want to modify script so `video_limit` is `None` or a higher value.
-4. Copy printout of URLs
+  - You can modify script so `video_limit` is a value (defaults to no limit)
+  - Output `videos.json`
+4. Copy printout of URLs (if not using the output file `videos.json`)
 5. Follow [@simonw](https://github.com/simonw)'s blog at https://til.simonwillison.net/tiktok/download-all-videos
 
 ## Disclaimer
