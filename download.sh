@@ -1,8 +1,8 @@
-mkdir -p downloads/favs
+mkdir -p downloads
 jq -r '.[]' videos.json | while read url; do
     uvx yt-dlp \
-      -o "downloads/favs/%(id)s.%(ext)s" \
-      --exec 'echo "%(id)s : %(title)s" >> downloads/favs/log.txt' \
+      -o "downloads/%(id)s.%(ext)s" \
+      --exec 'echo "%(id)s : %(title)s" >> downloads/log.txt' \
       "$url" 
     if [[ $? -eq 0 ]]; then
         echo "Successfully downloaded: $url"

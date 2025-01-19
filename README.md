@@ -30,7 +30,7 @@ I've slightly modified it to only name the video by ID but create a log with the
 mkdir -p downloads
 jq -r '.[]' videos.json | while read url; do
     uvx yt-dlp \
-      -o "downloads/favs/%(id)s.%(ext)s" \
+      -o "downloads/%(id)s.%(ext)s" \
       --exec 'echo "%(id)s : %(title)s" >> downloads/log.txt' \
       "$url" 
     if [[ $? -eq 0 ]]; then
